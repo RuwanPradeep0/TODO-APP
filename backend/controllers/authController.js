@@ -2,6 +2,7 @@ import { User } from "../model/user.js";
 import bcrypt from "bcryptjs";
 import { generateJWTToken } from "../utills/generateJWTToken.js";
 import { generateVerificationToken } from "../utills/generateVerificationToken.js";
+import { sendVerificationEmail } from "../emailService/email.js";
 
 
 export const signup = async (req, res) => {
@@ -30,7 +31,7 @@ export const signup = async (req, res) => {
   
       generateJWTToken(res, user._id);
   
-      // await sendVerificationEmail(user.email, verificationToken);
+      await sendVerificationEmail(user.email, verificationToken);
   
       res.status(201).json({
         success: true,

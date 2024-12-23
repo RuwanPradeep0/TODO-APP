@@ -17,5 +17,4 @@ router.post("/signup", signup);
 // router.get('/check-auth', verifyToken, checkAuth);
 
 
-
 export default router;

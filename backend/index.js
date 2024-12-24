@@ -1,32 +1,33 @@
 import express from 'express';
-import dotenv from 'dotenv'; 
-dotenv.config();
+import cors from 'cors';
+import dotenv from 'dotenv';
 import { conectDB } from './database/connectDB.js';
-import authRoute from './routes/authRoute.js'
-import taskRoute from './routes/taskRoute.js'
-import cookieParser from "cookie-parser";
+import authRoute from './routes/authRoute.js';
+import taskRoute from './routes/taskRoute.js';
+import cookieParser from 'cookie-parser';
 
-console.log("JWT_SECRET Loaded: ", process.env.JWT_SECRET);
+dotenv.config();
 
+const app = express();
 
-const app= express();
+const corsOptions = {
+    origin: 'http://localhost:3000', 
+    credentials: true, 
+  };
+  
+  app.use(cors(corsOptions));
+
 app.use(cookieParser());
-
-app.listen(5000 , ()=>{
-    console.log("server is up and running on the port 5000")
-})
-
-conectDB()
 app.use(express.json());
-app.use('/api/auth' , authRoute)
-app.use('/api/task' , taskRoute)
-app.use('/', () => {
-    return "server is running";
-  });
 
+conectDB();
 
+app.use('/api/auth', authRoute);
+app.use('/api/task', taskRoute);
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
 
-
-//6ZZcpH6nwamSkhrq
-//ruwanpradeep
-//mongodb+srv://ruwanpradeep:6ZZcpH6nwamSkhrq@cluster0.yicyo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+app.listen(5000, () => {
+  console.log('Server is up and running on port 5000');
+});

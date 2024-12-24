@@ -1,0 +1,90 @@
+/* emailVerificationPage.css */
+
+/* Using Global Styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    max-width: 400px;
+    margin: auto;
+    background-color: var(--background);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .title {
+    font-size: var(--text-2xl);
+    font-weight: bold;
+    color: var(--text-primary);
+  }
+  
+  .subtitle {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+  
+  .form {
+    width: 100%;
+  }
+  
+  .formGroup {
+    margin-bottom: 1.5rem;
+  }
+  
+  .label {
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: var(--text-base);
+    background-color: var(--input-background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    box-sizing: border-box;
+  }
+  
+  .input:disabled {
+    background-color: #f0f4f8;
+  }
+  
+  .button {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: var(--text-base);
+    background-color: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: var(--primary-hover);
+  }
+  
+  .error {
+    color: #e74c3c;
+    font-size: var(--text-sm);
+    margin-top: 1rem;
+  }
+  
+  .success {
+    color: #2ecc71;
+    font-size: var(--text-sm);
+    margin-top: 1rem;
+  }
+  

@@ -1,39 +1,35 @@
 import { resend } from "./config.js";
-import {
-  verificationTokenEmailTemplate,
-  WELCOME_EMAIL_TEMPLATE,
-} from "./emailTemplate.js";
+
 
 export const sendVerificationEmail = async (email, verificationToken) => {
-  try {
-    const { data, error } = await resend.emails.send({
-      from: "Acme <onboarding@resend.dev>",
-      to: [email],
-      subject: "Verify Your Email Address Now",
-      html: verificationTokenEmailTemplate.replace(
-        "{verificationToken}",
-        verificationToken
-      ),
-    });
-  } catch (error) {
-    console.log("error sending verification email", error);
-    throw new Error("Error sending verification email");
-  }
-};
+    try {
+      const { data, error } = await resend.emails.send({
+        from: "Acme <onboarding@resend.dev>",
+        to: [email],
+        subject: "Verify Your Email Address Now",
+        text: `Your verification code is: ${verificationToken}`,
+      });
+    } catch (error) {
+      console.log("error sending verification email", error);
+      throw new Error("Error sending verification email");
+    }
+  };
+  
 
 
-export const sendWelcomeEmail = async (email, name) => {
+  export const sendWelcomeEmail = async (email, name) => {
     try {
       const { data, error } = await resend.emails.send({
         from: "Acme <onboarding@resend.dev>",
         to: [email],
         subject: "Welcome to TO-DO Application",
-        html: WELCOME_EMAIL_TEMPLATE.replace("{name}", name),
+        text: `Hello ${name},\n\nWelcome to the TO-DO Application! We're excited to have you on board.\n\nBest regards,\nAcme Team`,
       });
     } catch (error) {
       console.log("error sending welcome email", error);
     }
   };
+  
 
   export const sendPasswordResetEmail = async (email, resetURL) => {
     try {

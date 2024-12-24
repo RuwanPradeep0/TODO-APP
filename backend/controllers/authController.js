@@ -178,7 +178,7 @@ export const signup = async (req, res) => {
     }
   };
 
-  export const checkAuth = async (req, res) => {
+  export const getUserDetails = async (req, res) => {
     try {
       const user = await User.findById(req.userId);
       if (!user) {
@@ -187,12 +187,20 @@ export const signup = async (req, res) => {
           .json({ success: false, message: "User not found" });
       }
   
-      res
-        .status(200)
-        .json({ success: true, user: { ...user._doc, password: undefined } });
+      const { firstName, lastName, email } = user;
+  
+      res.status(200).json({
+        success: true,
+        user: {
+          firstName,
+          lastName,
+          email,
+        },
+      });
     } catch (error) {
-      console.log("error checking auth", error);
+      console.error("Error fetching user details:", error);
       res.status(400).json({ success: false, message: error.message });
     }
   };
+  
   

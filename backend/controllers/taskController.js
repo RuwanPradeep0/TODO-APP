@@ -31,25 +31,23 @@ export const createTask = async (req, res) => {
   };
 
 
-export const getTasks = async (req, res) => {
+  export const getTasks = async (req, res) => {
     try {
-      const tasks = await Task.find({ user: req.userId })
-        .sort({ startDateTime: 1 }); 
+      const today = new Date();
+      today.setUTCHours(0, 0, 0, 0);
   
-      const today = new Date().setHours(0, 0, 0, 0);
-      const highlightedTasks = tasks.map(task => {
-        if (new Date(task.startDateTime).setHours(0, 0, 0, 0) === today) {
-          task.isToday = true;
-        }
-        return task;
-      });
+      const tasks = await Task.find({ 
+        user: req.userId, 
+        startDateTime: { $gte: today }
+      }).sort({ startDateTime: 1 }); 
   
-      res.status(200).json({ success: true, tasks: highlightedTasks });
+      res.status(200).json(tasks);
     } catch (error) {
       console.error('Error fetching tasks:', error);
       res.status(500).json({ success: false, message: 'Internal Server Error' });
     }
   };
+  
 
 export const updateTask = async (req, res) => {
     const { taskId } = req.params;

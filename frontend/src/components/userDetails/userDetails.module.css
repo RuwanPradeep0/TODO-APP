@@ -1,0 +1,63 @@
+.userDetails {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    background: var(--background);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    overflow: hidden;
+    border: 3px solid var(--primary);
+  }
+  
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .card h2 {
+    font-size: var(--text-2xl);
+    margin-bottom: 0.5rem;
+  }
+  
+  .email {
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+    margin-bottom: 2rem;
+  }
+  
+  .info {
+    text-align: left;
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .infoItem {
+    display: grid;
+    gap: 0.25rem;
+  }
+  
+  .infoItem label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+  
+  .infoItem p {
+    font-size: var(--text-base);
+    color: var(--text-primary);
+  }
+  
+  

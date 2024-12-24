@@ -1,0 +1,60 @@
+.task {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px; /* Added padding for a more spacious look */
+    margin: 10px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Adding a hover effect */
+  }
+  
+  .task:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+  }
+  
+  .todayTask {
+    background-color: #f9f9f9; /* Light background for today's task */
+  }
+  
+  .taskInfo {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .date {
+    font-size: 0.9em;
+    color: #888;
+  }
+  
+  .description {
+    font-size: 1em;
+    color: #555;
+    margin: 10px 0;
+    line-height: 1.5;
+    word-wrap: break-word; /* Ensuring the text wraps correctly */
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .editButton,
+  .deleteButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .editButton:hover,
+  .deleteButton:hover {
+    background-color: #f0f0f0;
+    border-radius: 50%;
+  }
+  

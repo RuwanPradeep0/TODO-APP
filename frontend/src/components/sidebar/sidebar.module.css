@@ -1,0 +1,74 @@
+.sidebar {
+    padding: 2rem;
+    background: #f4f7fc; /* Light background color */
+    border-right: 1px solid #e0e4e9; /* Light border color */
+    height: 100vh;
+    box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the sidebar */
+  }
+  
+  .logo h1 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1d3557; /* Primary color for the logo */
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .navButton {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #4b5361; /* Default text color */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #ffffff; /* White background for buttons */
+    border: 1px solid #e0e4e9; /* Light border around buttons */
+  }
+  
+  .navButton:hover {
+    background: #e0e4e9; /* Light background color on hover */
+    color: #1d3557; /* Dark color for hover text */
+  }
+  
+  .navButton.active {
+    background: #1d3557; /* Dark background for active button */
+    color: white;
+    font-weight: 600;
+  }
+  
+  .navButton.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: #ffab00; /* Highlight color for active state */
+    border-radius: 8px;
+  }
+  
+  .navButton:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px #ffab00; /* Focus box shadow with highlight color */
+  }
+  
+  .navButton:active {
+    background: #ffab00; /* Active button background color */
+    transform: translateY(1px);
+  }
+  

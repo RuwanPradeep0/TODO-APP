@@ -37,6 +37,11 @@ const taskSchema = new mongoose.Schema(
       default: false,
     },
 
+    isToday: {
+        type: Boolean,
+        default: false,
+      },
+
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
